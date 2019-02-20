@@ -1,24 +1,29 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 
+import Name from './components/Names';
+import Data from './data/names.json';
+
 class App extends Component {
+
+  state = {
+    namesData: Data,
+    name: 'pravien'
+  }
+
   render() {
     return (
       <div className="App">
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
+          <h1>Fetch Name Details</h1>
+          <ul>
+            {this.state.namesData.map((names, index) => {
+              return <Name 
+               uName={names.firstname}
+               lName={names.lastname}
+               key={index}/>
+            })}
+          </ul>
         </header>
       </div>
     );
