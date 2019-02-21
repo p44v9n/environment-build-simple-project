@@ -4,6 +4,7 @@ import './App.css';
 import Name from './components/Names';
 import Data from './data/names.json';
 
+
 import axios from "axios";
 
 class App extends Component {
@@ -42,6 +43,7 @@ class App extends Component {
     const {data} = this.state;
     return (
       <div className="App">
+      <div className="nameList">
         <header className="App-header">
           <h1>Fetch Name Details</h1>
           <ul>
@@ -53,6 +55,7 @@ class App extends Component {
             })}
           </ul>
         </header>
+        </div>
       </div>
     );
   }
