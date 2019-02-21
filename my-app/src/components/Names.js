@@ -2,7 +2,10 @@ import React from 'react';
 
 const name = (props) => {
   return(
-    <li>{ props.uName + ' ' + props.lName }</li>
+    <li
+     onClick={props.clicked} >
+      { props.uName + ' ' + props.lName }
+    </li>
   );
 }
 

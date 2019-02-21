@@ -5,15 +5,18 @@ import Name from './components/Names';
 import Data from './data/names.json';
 
 
-import axios from "axios";
+//import axios from "axios";
 
 class App extends Component {
 
   state = {
     namesData: Data,
-    name: 'pravien',
     intervalIsSet: false,
-    data: []
+    data: [],
+    firstName: null,
+    lastName: null,
+    age: null,
+    nationality: null
   }
 
   componentDidMount() {
@@ -39,6 +42,15 @@ class App extends Component {
       .then(res => this.setState({ data: res.data }));
   };
 
+  clcikHandler = (names) => {
+    this.setState({
+      firstName: names.firstname,
+      lastName: names.lastname,
+      age: names.age,
+      nationality: names.nationality
+    });
+  }
+
   render() {
     const {data} = this.state;
     return (
@@ -51,10 +63,15 @@ class App extends Component {
               return <Name 
                uName={names.firstname}
                lName={names.lastname}
+               clicked={this.clcikHandler.bind(this, names)}
                key={index}/>
             })}
           </ul>
         </header>
+        <p>First Name: {this.state.firstName}</p>
+        <p>Last Name: {this.state.lastName}</p>
+        <p>Age: {this.state.age}</p>
+        <p>Nationality: {this.state.nationality}</p>
         </div>
       </div>
     );
