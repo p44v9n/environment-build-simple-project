@@ -5,6 +5,7 @@ import { BrowserRouter, Link } from 'react-router-dom';
 import Name from './components/Names';
 import NamesInfo from './components/NamesInfo';
 import DefaultContent from './components/DefaultContent'
+import axios from 'axios';
 
 class App extends Component {
 
@@ -19,27 +20,10 @@ class App extends Component {
   }
 
   componentDidMount() {
-    this.getDataFromDb();
-    if (!this.state.intervalIsSet) {
-      let interval = setInterval(this.getDataFromDb, 1000);
-      this.setState({ intervalIsSet: interval });
-    }
-  }
 
-  // never let a process live forever 
-  // always kill a process everytime we are done using it
-  componentWillUnmount() {
-    if (this.state.intervalIsSet) {
-      clearInterval(this.state.intervalIsSet);
-      this.setState({ intervalIsSet: null });
-    }
+    axios.get('http://localhost:3001/api/getData')
+      .then(res => this.setState({data: res.data.data}))
   }
-
-  getDataFromDb = () => {
-    fetch("http://localhost:3001/api/getData")
-      .then(data => data.json())
-      .then(res => this.setState({ data: res.data }));
-  };
 
   profileClickHandler = (names) => {
     this.setState({
