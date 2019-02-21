@@ -1,20 +1,17 @@
 import React, { Component } from 'react';
 import './styles/App.css';
-import { BrowserRouter,
-  Switch,
-  Route,
-  Link,
-  NavLink
-} from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
 
 import Name from './components/Names';
 import NamesInfo from './components/NamesInfo';
+import DefaultContent from './components/DefaultContent'
 
 class App extends Component {
 
   state = {
     intervalIsSet: false,
     data: [],
+    personClicked: false,
     firstName: null,
     lastName: null,
     age: null,
@@ -46,6 +43,7 @@ class App extends Component {
 
   clickHandler = (names) => {
     this.setState({
+      personClicked: true,
       firstName: names.firstname,
       lastName: names.lastname,
       age: names.age,
@@ -61,7 +59,7 @@ class App extends Component {
           <div className="nameList">
             <header className="header">
               <div className="header-content">
-                <h1>Fetch Name Details</h1>
+                <h1>Team Tent</h1>
                 <ul>
                   {data.map((names, index) => {
                     return <Name 
@@ -73,11 +71,14 @@ class App extends Component {
                 </ul>
               </div>
             </header>
-            <NamesInfo 
+            {!this.state.personClicked ? 
+              <DefaultContent /> :
+              <NamesInfo 
               fNmameInfo={this.state.firstName}
               lNameInfo={this.state.lastName}
               ageInfo={this.state.age}
                 nationalityInfo={this.state.nationality}/>
+            }
           </div>
         </div>
       </BrowserRouter>

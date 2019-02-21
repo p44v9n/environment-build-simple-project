@@ -1,18 +1,33 @@
+body {
+  margin: 0;
+  padding: 0;
+  color: #000000; }
+
 .App {
-  text-align: center; }
+  text-align: center;
+  font-family: 'Helvetica'; }
 
 ul {
-  list-style: none; }
+  list-style: none;
+  display: inline-flex;
+  width: 100%; }
 
 li {
-  cursor: pointer; }
+  cursor: pointer;
+  flex: 1; }
+
+a {
+  text-decoration: none;
+  color: #000000; }
+
+h1 {
+  color: #109053; }
 
 .header {
   padding: 0 20px;
   overflow: hidden;
   border-bottom: 1px solid #ccc;
-  box-shadow: 0 0 16px 0 #909090;
-  background: #b8c1e0; }
+  box-shadow: 0 0 16px 0 #909090; }
 
 .header-content {
   align-items: center; }
