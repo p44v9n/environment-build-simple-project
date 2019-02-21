@@ -75,7 +75,6 @@ Data.create(userData, function(err, results) {
 // this method fetches all available data in our database
 router.get("/getData", (req, res) => {
   Data.find((err, data) => {
-    console.log(data)
     if (err) return res.json({ success: false, error: err });
     return res.json({ success: true, data: data });
   });
