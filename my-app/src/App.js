@@ -61,7 +61,7 @@ class App extends Component {
     const {data} = this.state;
     return (
       <BrowserRouter>
-        <div className="App container">
+        <div className="App">
           <div className="nameList">
             <header className="header">
               <div className="header-content">

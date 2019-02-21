@@ -1,7 +1,8 @@
 body {
   margin: 0;
   padding: 0;
-  color: #000000; }
+  color: #000000;
+  overflow: hidden; }
 
 .App {
   text-align: center;
@@ -10,7 +11,9 @@ body {
 ul {
   list-style: none;
   display: inline-flex;
-  width: 100%; }
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0; }
 
 li {
   cursor: pointer;
@@ -24,7 +27,7 @@ h1 {
   color: #109053; }
 
 .logo {
-  max-width: 800px; }
+  max-width: 400px; }
 
 .default-content {
   height: 700px;
@@ -36,6 +39,14 @@ h1 {
 .container {
   max-width: 1360px;
   margin: 0 auto; }
+
+@media only screen and (min-width: 760px) {
+  .logo {
+    max-width: 600px; } }
+
+@media only screen and (min-width: 1024px) {
+  .logo {
+    max-width: 800px; } }
 
 .header {
   padding: 0 20px;
