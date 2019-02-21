@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './styles/App.css';
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter, Link } from 'react-router-dom';
 
 import Name from './components/Names';
 import NamesInfo from './components/NamesInfo';
@@ -41,7 +41,7 @@ class App extends Component {
       .then(res => this.setState({ data: res.data }));
   };
 
-  clickHandler = (names) => {
+  profileClickHandler = (names) => {
     this.setState({
       personClicked: true,
       firstName: names.firstname,
@@ -51,21 +51,31 @@ class App extends Component {
     });
   }
 
+  headerClickHandler = () => {
+    this.setState({
+      personClicked: false
+    });
+  }
+
   render() {
     const {data} = this.state;
     return (
       <BrowserRouter>
-        <div className="App">
+        <div className="App container">
           <div className="nameList">
             <header className="header">
               <div className="header-content">
-                <h1>Team Tent</h1>
+                <h1
+                  onClick={this.headerClickHandler}
+                >
+                  <Link to="/">Team Tent</Link>
+                </h1>
                 <ul>
                   {data.map((names, index) => {
                     return <Name 
                     uName={names.firstname}
                     lName={names.lastname}
-                    clicked={this.clickHandler.bind(this, names)}
+                    clicked={this.profileClickHandler.bind(this, names)}
                     key={index}/>
                   })}
                 </ul>

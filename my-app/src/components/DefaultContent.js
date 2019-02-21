@@ -1,9 +1,11 @@
 import React from 'react';
+import Logo from '../assets/logo.png'
 
 const defaultContent = () => {
   return(
     <div className="default-content">
-      <h1>See the person's profile here!!!!!</h1>
+      <img className="logo" src={Logo} alt="logo"/>
+      <h1>Click Person Names to see the person's profile here!!!!!</h1>
     </div>
   );
 }

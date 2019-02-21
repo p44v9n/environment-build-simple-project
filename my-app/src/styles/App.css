@@ -23,6 +23,20 @@ a {
 h1 {
   color: #109053; }
 
+.logo {
+  max-width: 800px; }
+
+.default-content {
+  height: 700px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column; }
+
+.container {
+  max-width: 1360px;
+  margin: 0 auto; }
+
 .header {
   padding: 0 20px;
   overflow: hidden;
@@ -33,7 +47,6 @@ h1 {
   align-items: center; }
 
 .logo {
-  width: 20%;
   display: inline-block;
   box-sizing: border-box;
   overflow: hidden;
