@@ -44,8 +44,8 @@ var userData = [
   },
   {
       id: 2,
-      firstname: "krisz",
-      lastname: "egreever",
+      firstname: "Krisz",
+      lastname: "Egervari",
       nationality: "Hungarian",
       age: 26
   },
